@@ -43,7 +43,85 @@
         </button>
       </div>
       <!-- create a modal with a form to add tasks -->
+      <div
+        class="modal fade"
+        id="formModal"
+        tabindex="-1"
+        aria-labelledby="formModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="formModalLabel">Add Task</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="taskForm" class="p-3">
+                <div class="row">
+                  <!-- task title area -->
+                  <div class="col-6">
+                    <label for="taskTitle" class="col-form-label"
+                      >Task Title</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control mb-2"
+                      id="taskTitle"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <!-- task due date area -->
+                  <div class="col-6">
+                    <!-- due date, needs to pull up the little calendar -->
+                    <label for="taskDueDate" class="col-form-label"
+                      >Task Due Date</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control mb-2"
+                      id="taskDueDate"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <!-- task description area -->
+                <div class="row">
+                  <div class="col-12">
+                    <label for="taskDescription" class="col-form-label"
+                      >Task Description</label
+                    >
+                    <textarea
+                      class="form-control mb-4"
+                      id="taskDescription"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+                <!-- submit button -->
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#formModal"
+                  >
+                    Add Task
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal ends here -->
       <div class="row swim-lanes text-center justify-content-between">
+        <!-- task in to do column -->
         <div class="col-12 col-lg-4 d-flex">
           <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
             <div class="card-header bg-white">
@@ -54,6 +132,8 @@
             </div>
           </div>
         </div>
+        <!-- task in to do column ends here -->
+        <!-- task in progress column -->
         <div class="col-12 col-lg-4 d-flex">
           <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
             <div class="card-header bg-white">
@@ -64,6 +144,8 @@
             </div>
           </div>
         </div>
+        <!-- task in progress column ends here -->
+        <!-- task done column -->
         <div class="col-12 col-lg-4 d-flex">
           <div id="done" class="card border-light mb-3 lane flex-grow-1">
             <div class="card-header bg-white">
@@ -74,6 +156,7 @@
             </div>
           </div>
         </div>
+        <!-- task done column ends here -->
       </div>
     </div>
 
