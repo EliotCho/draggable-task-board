@@ -25,7 +25,7 @@ None
 
 ## Tests
 
-Run the website online and check if there's any spelling errors or bugs\
+Run the website online and check if there's any spelling errors or bugs
 Page link: https://eliotcho.github.io/draggable-task-board/
 
 ## Screenshots
@@ -33,4 +33,4 @@ Page link: https://eliotcho.github.io/draggable-task-board/
 The following image shows the web application's appearance and functionality:
 Main page
 
-![](./assets/images/.png)
+![Example of the main page](./assets/images/main_page_example.png)
