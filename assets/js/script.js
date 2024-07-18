@@ -62,7 +62,7 @@ function createTaskCard(task) {
 
 // create a function to render the task list and make cards draggable
 function renderTaskList() {
-  console.log("we are rendering the task list");
+  // console.log("we are rendering the task list");
   const taskList = readLocalStorage();
 
   const todoColumn = $("#todo-cards");
@@ -72,6 +72,7 @@ function renderTaskList() {
   inProgressColumn.empty();
   doneColumn.empty();
 
+  // loop through the taskList and append the cards to the correct column
   for (let i of taskList) {
     if (i.status === "to-do") {
       todoColumn.append(createTaskCard(i));
@@ -82,6 +83,7 @@ function renderTaskList() {
     }
   }
 
+  // makes the card draggable
   $(".draggable").draggable({
     opacity: 0.7,
     zIndex: 100,
@@ -92,12 +94,13 @@ function renderTaskList() {
 function handleAddTask(event) {
   const taskList = readLocalStorage();
   event.preventDefault();
-  console.log("we are adding a task");
+  // console.log("we are adding a task");
 
   let taskTitle = $("#taskTitle");
   let taskDueDate = $("#taskDueDate");
   let taskDescription = $("#taskDescription");
 
+  // create an object to store the task details
   const taskObj = {
     title: taskTitle.val().trim(),
     dueDate: taskDueDate.val().trim(),
@@ -110,6 +113,8 @@ function handleAddTask(event) {
   saveLocalStorage(taskList);
 
   renderTaskList();
+
+  // clear the form fields
   $("#taskTitle").val("");
   $("#taskDueDate").val("");
   $("#taskDescription").val("");
@@ -137,15 +142,14 @@ function handleDeleteTask(event) {
 function handleDrop(event, ui) {
   const taskList = readLocalStorage();
   const taskId = ui.draggable[0].dataset.taskId;
-  console.log(taskId);
-  console.log("ui.draggable");
-  console.log(ui.draggable);
+
   const status = event.target.id;
 
+  // loop through the taskList and update the status of the task
   for (let task of taskList) {
     if (task.id === taskId) {
       task.status = status;
-      console.log(`task status is now: ${task.status}`);
+      // console.log(`task status is now: ${task.status}`);
     }
   }
   localStorage.setItem("taskList", JSON.stringify(taskList));
@@ -162,6 +166,7 @@ $(document).ready(function () {
     changeYear: true,
   });
 
+  // make the lanes droppable
   $(".lane").droppable({
     accept: ".draggable",
     drop: handleDrop,
